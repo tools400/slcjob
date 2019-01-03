@@ -1,0 +1,45 @@
+     /* =================================================================== */
+     /*                                                                     */
+     /*  Kurzdokumentation :                                                */
+     /*                                                                     */
+     /*  Bereich . . . : SLCJOB                                             */
+     /*  Objekt  . . . : SLCJOB                                             */
+     /*  Beschreibung  : Tool: Select Job                                   */
+     /*  Author  . . . : Thomas Raddatz   <thomas.raddatz@tools400.de>      */
+     /*  Datum . . . . : 17.08.2007                                         */
+     /*                                                                     */
+     /* =================================================================== */
+     /*                                                                     */
+     /*  This software is free software, you can redistribute it and/or     */
+     /*  modify it under the terms of the GNU General Public License (GPL)  */
+     /*  as published by the Free Software Foundation.                      */
+     /*                                                                     */
+     /*  See GNU General Public License for details.                        */
+     /*          http://www.opensource.org                                  */
+     /*          http://www.opensource.org/licenses/gpl-license.html        */
+     /*                                                                     */
+     /* =================================================================== */
+     /*  History:                                                           */
+     /*                                                                     */
+     /*  Datum       Name          Änderung                                 */
+     /*  ----------  ------------  ---------------------------------------  */
+     /*                                                                     */
+     /* =================================================================== */
+     /* >>PRE-COMPILER<<                                                    */
+     /*                                                                     */
+     /*   >>CRTCMD<< CRTPGM       PGM(&LI/&OB);                             */
+     /*                                                                     */
+     /*   >>LINK<<                                                          */
+     /*     >>PARM<< ENTMOD(&LI/SLCJOBR1);                                  */
+     /*     >>PARM<< MODULE(&LI/SLCJOBR1);                                  */
+     /*     >>PARM<< BNDSRVPGM(&LI/BASICS1 +                                */
+     /*                        &LI/LSTJOB );                                */
+     /*     >>PARM<< DETAIL(*BASIC);                                        */
+     /*     >>PARM<< ACTGRP(*CALLER   );                                    */
+     /*     >>PARM<< TGTRLS(V5R3M0);                                        */
+     /*   >>END-LINK<<                                                      */
+     /*                                                                     */
+     /*   >>EXECUTE<<                                                       */
+     /*                                                                     */
+     /* >>END-PRE-COMPILER<<                                                */
+     /* =================================================================== */
