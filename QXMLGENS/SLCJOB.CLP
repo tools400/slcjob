@@ -19,7 +19,7 @@
 /* -------------------------------------------------------------------------- */
              XMLGENINC  XINCLUDE(*YES)
 
-             XMLGENVRS XSRCFILE(QSLCJOB) XSRCLIB(TOOLS400) XSRCMBR(COPYRIGHT)
+             XMLGENVRS XSRCFILE(QSLCJOB) XSRCLIB(SLCJOBD) XSRCMBR(COPYRIGHT)
 
              XMLGENSET  XVAR(&SRCFILE) XVALUE(QSLCJOB)
 
@@ -27,17 +27,17 @@
 /*  Deploy source member              */
 /* ---------------------------------- */
              XMLGENMBR  XMBR(A_INSTALL ) XMBRATR(CLLE  ) +
-                          XFROMSRCF(QSLCJOB   ) XFROMSRCL(TOOLS400) +
+                          XFROMSRCF(QSLCJOB   ) XFROMSRCL(SLCJOBD) +
                           XTOSRCF(QSLCJOB   ) XOBJTYPE(*FILE  ) +
                           XGENCRT(*NO ) XPARAM(*BLANK)
 
              XMLGENMBR  XMBR(A_README  ) XMBRATR(TXT   ) +
-                          XFROMSRCF(QSLCJOB   ) XFROMSRCL(TOOLS400) +
+                          XFROMSRCF(QSLCJOB   ) XFROMSRCL(SLCJOBD) +
                           XTOSRCF(QSLCJOB   ) XOBJTYPE(*FILE  ) +
                           XGENCRT(*NO ) XPARAM(*BLANK)
 
              XMLGENMBR  XMBR(COPYRIGHT ) XMBRATR(RPGLE ) +
-                          XFROMSRCF(QSLCJOB   ) XFROMSRCL(TOOLS400) +
+                          XFROMSRCF(QSLCJOB   ) XFROMSRCL(SLCJOBD) +
                           XTOSRCF(QSLCJOB   ) XOBJTYPE(*CMD    ) +
                           XGENCRT(*NO ) XPARAM(*BLANK)
 

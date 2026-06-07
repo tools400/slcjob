@@ -21,7 +21,7 @@
      /* =================================================================== */
      /*  History:                                                           */
      /*                                                                     */
-     /*  Datum       Name          Änderung                                 */
+     /*  Datum       Name          Ã„nderung                                 */
      /*  ----------  ------------  ---------------------------------------  */
      /*                                                                     */
      /* =================================================================== */
@@ -32,8 +32,8 @@
      /*   >>LINK<<                                                          */
      /*     >>PARM<< ENTMOD(&LI/SLCJOBR1);                                  */
      /*     >>PARM<< MODULE(&LI/SLCJOBR1);                                  */
-     /*     >>PARM<< BNDSRVPGM(&LI/BASICS1 +                                */
-     /*                        &LI/LSTJOB );                                */
+     /*     >>PARM<< BNDSRVPGM(*LIBL/BASICS1 +                              */
+     /*                        *LIBL/LSTJOB );                              */
      /*     >>PARM<< DETAIL(*BASIC);                                        */
      /*     >>PARM<< ACTGRP(*CALLER   );                                    */
      /*     >>PARM<< TGTRLS(V5R3M0);                                        */

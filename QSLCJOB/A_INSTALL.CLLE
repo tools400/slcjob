@@ -23,7 +23,7 @@
      /* =================================================================== */
      /*  History:                                                           */
      /*                                                                     */
-     /*  Datum       Name          Änderung                                 */
+     /*  Datum       Name          Ã„nderung                                 */
      /*  ----------  ------------  ---------------------------------------  */
      /*                                                                     */
      /* =================================================================== */
@@ -82,8 +82,8 @@
              CRTPGM     PGM(&TOLIB/SLCJOB     ) +
                           MODULE(&TOLIB/SLCJOBR1 ) TEXT(*ENTMODTXT) +
                           ENTMOD(&TOLIB/SLCJOBR1 ) ACTGRP(*CALLER) +
-                          BNDSRVPGM(&TOLIB/BASICS1  +
-                                    &TOLIB/LSTJOB ) +
+                          BNDSRVPGM(*LIBL/BASICS1  +
+                                    *LIBL/LSTJOB ) +
                           DETAIL(*BASIC) USRPRF(*USER) +
                           TGTRLS(&TGTRLS)
              DLTSPLF    FILE(SLCJOB    ) JOB(*) SPLNBR(*LAST)

@@ -1,39 +1,34 @@
-      /IF NOT DEFINED(PSLCJOB)
-      /DEFINE PSLCJOB
-      *
-      /COPY QLSTJOB,PLSTJOB
-      *
-      *  Type definitions
-      /COPY QLSTJOB,FDJOBL0100
-      *
-      *  Prototype for job select program
-      /IF DEFINED(SLCJOB_INTERNALLY)
-     D SLCJOB...
-     D                 PR                         extpgm('SLCJOB')
-      /ELSE
-     D cSLCJOB_PGM_NAME...
-     D                 C                   'SLCJOB'
-     D g_pgm_slcjob    S             21A   inz
-     D SLCJOB...
-     D                 PR                         extpgm(g_pgm_slcjob)
-      /ENDIF
-     D  gi_qJob                            const  likeds(qJob_t    )
-     D  go_qJob                                   likeds(qJob_t    )
-     D  go_cmdKey                     1A
-     D  gi_pChkSflE                    *   const  procptr options(*nopass)
-      *
-      *  Procedure interface for job check procedure
-      /IF DEFINED(SLCJOB_INTERNALLY)
-     D g_SLCJOB_cb_isJobValid...
-     D                 S               *          procptr
-     D SLCJOB_cb_isJobValid...
-     D                 PR              N          extproc(
-     D                                            g_SLCJOB_cb_isJobValid)
-      /ELSE
-     D SLCJOB_cb_isJobValid...
-     D                 PR              N          extproc('+
-     D                                            SLCJOB_cb_isJobValid')
-      /ENDIF
-     D  i_jobl0100                         const  likeds(jobl0100_t  )
-      *
-      /ENDIF
+**free
+/if NOT defined(PSLCJOB)
+/define PSLCJOB
+
+/copy QLSTJOB,PLSTJOB
+
+//  Type definitions
+/copy QLSTJOB,FDJOBL0100
+
+//  Prototype for job select program
+/if defined(SLCJOB_INTERNALLY)
+dcl-pr SLCJOB extpgm('SLCJOB');
+/else
+  dcl-c cSLCJOB_PGM_NAME 'SLCJOB';
+  dcl-s g_pgm_slcjob char(21) inz;
+dcl-pr SLCJOB extpgm(g_pgm_slcjob);
+/endif
+  gi_qJob     likeds(qJob_t) const;
+  go_qJob     likeds(qJob_t);
+  go_cmdKey   char(1);
+  gi_pChkSflE pointer(*proc) options(*nopass) const;
+end-pr;
+
+//  Procedure interface for job check procedure
+/if defined(SLCJOB_INTERNALLY)
+dcl-s g_SLCJOB_cb_isJobValid pointer(*proc);
+dcl-pr SLCJOB_cb_isJobValid ind extproc(g_SLCJOB_cb_isJobValid);
+/else
+dcl-pr SLCJOB_cb_isJobValid ind extproc('SLCJOB_cb_isJobValid');
+/endif
+  i_jobl0100 likeds(jobl0100_t) const;
+end-pr;
+
+/endif
