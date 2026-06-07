@@ -1,7 +1,7 @@
 SLCJOB - A Tools/400 Utility
 ----------------------------
 
-SLCJOB is a program for selecting a job with generic selection arguments.
+SLCJOB is a utility for selecting jobs from a filtered list of jobs.
 
 Dependencies: BASICS1
               LSTJOB

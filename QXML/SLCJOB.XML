@@ -51,7 +51,7 @@
       appblddate CDATA #REQUIRED
      >
      ]>
-<upload  appname="SLCJOB"  appauthor="Thomas Raddatz"  appblddate=" 1/02/2019">
+<upload  appname="SLCJOB"  appauthor="Thomas Raddatz"  appblddate=" 6/07/2026">
 <install_instructions><![CDATA[
      *----------------------------------------------------------------      ------
      *  1. Upload entire XML to your AS/400 to a source file 112 long, into any mbr
@@ -1283,7 +1283,7 @@ mbrtext =  "SLCJOB - Installer                                "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
      /* =================================================================== */
      /*                                                                     */
@@ -1310,7 +1310,7 @@ srccssid=  "00273">
      /* =================================================================== */
      /*  History:                                                           */
      /*                                                                     */
-     /*  Datum       Name          Ã„nderung                                 */
+     /*  Datum       Name          Änderung                                 */
      /*  ----------  ------------  ---------------------------------------  */
      /*                                                                     */
      /* =================================================================== */
@@ -1369,8 +1369,8 @@ srccssid=  "00273">
              CRTPGM     PGM(&TOLIB/SLCJOB     ) +
                           MODULE(&TOLIB/SLCJOBR1 ) TEXT(*ENTMODTXT) +
                           ENTMOD(&TOLIB/SLCJOBR1 ) ACTGRP(*CALLER) +
-                          BNDSRVPGM(&TOLIB/BASICS1  +
-                                    &TOLIB/LSTJOB ) +
+                          BNDSRVPGM(*LIBL/BASICS1  +
+                                    *LIBL/LSTJOB ) +
                           DETAIL(*BASIC) USRPRF(*USER) +
                           TGTRLS(&TGTRLS)
              DLTSPLF    FILE(SLCJOB    ) JOB(*) SPLNBR(*LAST)
@@ -1395,12 +1395,12 @@ mbrtext =  "SLCJOB Readme                                     "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
 SLCJOB - A Tools/400 Utility
 ----------------------------
 
-SLCJOB is a program for selecting a job with generic selection arguments.
+SLCJOB is a utility for selecting jobs from a filtered list of jobs.
 
 Dependencies: BASICS1
               LSTJOB
@@ -1428,16 +1428,15 @@ mbrtext =  "Copyright information                             "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
-      /if not defined(COPYRIGHT_DSPEC)
-     H COPYRIGHT('V1.1 - 23.05.2013 - mailto: thomas.raddatz@tools400.de')
-      /eof
-      /endif
-     D SLCJOB_VERSION...
-     D                 C                   '1.1'
-     D SLCJOB_DATE...
-     D                 C                   '23.05.2013'
+**free
+/if not defined(COPYRIGHT_DSPEC)
+ctl-opt copyright('V1.2 - 07.06.2026 - mailto: thomas.raddatz@tools400.de');
+/eof
+/endif
+dcl-c SLCJOB_VERSION '1.2';
+dcl-c SLCJOB_DATE '07.06.2026';
 ]]>  </copysrc>
 </mbr>
 <sendmsg  sendmsgid="CPF9897" sendmsgtype = "*STATUS   "><![CDATA[
@@ -1451,7 +1450,7 @@ mbrtext =  "Tool: Select Job                                  "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
       /IF NOT DEFINED(PSLCJOB)                                                                RADDAT
       /DEFINE PSLCJOB                                                                         RADDAT
@@ -1505,7 +1504,7 @@ mbrtext =  "Tool: Select Job                                  "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
      /* =================================================================== */        /* RADD */
      /*                                                                     */        /* RADD */
@@ -1530,7 +1529,7 @@ srccssid=  "00273">
      /* =================================================================== */        /* RADD */
      /*  History:                                                           */        /* RADD */
      /*                                                                     */        /* RADD */
-     /*  Datum       Name          Ã„nderung                                 */        /* RADD */
+     /*  Datum       Name          Änderung                                 */        /* RADD */
      /*  ----------  ------------  ---------------------------------------  */        /* RADD */
      /*                                                                     */        /* RADD */
      /* =================================================================== */        /* RADD */
@@ -1565,7 +1564,7 @@ mbrtext =  "Tool: Select Job                                  "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
      A*%%TS  SD  20070816  164338  RADDATZ     REL-V5R4M0  5722-WDS
  RAD A*=====================================================================*
@@ -1581,7 +1580,7 @@ srccssid=  "00273">
  RAD A*=====================================================================*
  RAD A*  History:                                                           *
  RAD A*                                                                     *
- RAD A*  Datum       Name          Ã„nderung                                 *
+ RAD A*  Datum       Name          Änderung                                 *
  RAD A*  ----------  ------------  ---------------------------------------  *
  RAD A*                                                                     *
  RAD A*=====================================================================*
@@ -1715,8 +1714,8 @@ srccssid=  "00273">
       *%%TS  SD  19971008  090717  RADDATZ     REL-V3R6M0  5716-PW1
  RAD A  *DS3                                SFLMSGRCD(24)
  RAD A  *DS4                                SFLMSGRCD(24)
- ADD A            Â§MSGKY                    SFLMSGKEY
- ADD A            Â§PGMQ                     SFLPGMQ(10)
+ ADD A            §MSGKY                    SFLMSGKEY
+ ADD A            §PGMQ                     SFLPGMQ(10)
       *
       *----------------------------------------------------*
  ADD A          R MSGCTL                    SFLCTL(MSGSFL)
@@ -1732,7 +1731,7 @@ srccssid=  "00273">
  ADD A  *DS4                                SFLSIZ(0050)
  ADD A  *DS3                                SFLPAG(0001)
  ADD A  *DS4                                SFLPAG(0001)
- RAD A            Â§PGMQ                     SFLPGMQ(10)
+ RAD A            §PGMQ                     SFLPGMQ(10)
       *----------------------------------------------------*
       *         R PBBOT
      A          R PBLEER
@@ -1762,7 +1761,7 @@ mbrtext =  "Tool: Select Job                                  "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
       *=====================================================================*
       *                                                                     *
@@ -1777,7 +1776,7 @@ srccssid=  "00273">
       *=====================================================================*
       *  History:                                                           *
       *                                                                     *
-      *  Datum       Name          Ã„nderung                                 *
+      *  Datum       Name          Änderung                                 *
       *  ----------  ------------  ---------------------------------------  *
       *  23.05.2013  Th.Raddatz    Fixed problem, that SFLEND was not       *
       *                            properly displayed. (End/More...)        *
@@ -1887,7 +1886,7 @@ srccssid=  "00273">
      D                 PR              N
      D  hJobs                              const  like(lstJob_handle_t)
       *
-      *  LÃ¶schen Subfile
+      *  Löschen Subfile
      D lp_clearSubfile...
      D                 PR
       *
@@ -1900,42 +1899,42 @@ srccssid=  "00273">
      D                 PR              N
      D  o_qJob                                    likeds(qJob_t    )
       *
-      *  Lesen geÃ¤nderten Subfile-Datensatz
+      *  Lesen geänderten Subfile-Datensatz
      D lf_readc...
      D                 PR              N
      D  o_SUBFILE                                 likerec(PBSFL)
       *
-      *  PrÃ¼fen Subfile-Datensatz
+      *  Prüfen Subfile-Datensatz
      D lf_isSubfileRecordValid...
      D                 PR              N
      D  i_SUBFILE_IN                       value  likerec(PBSFL: *INPUT)
       *
-      *  PrÃ¼fen Subfile-Auswahl
+      *  Prüfen Subfile-Auswahl
      D lf_isSubfileOptionValid...
      D                 PR              N
      D  i_option                           value  like(##OPTION)
       *
-      *  LÃ¶schen Subfile Fehlerbezugszahlen
+      *  Löschen Subfile Fehlerbezugszahlen
      D lf_clearSubfileErrorIndicator...
      D                 PR
       *
-      *  Laden Texte fÃ¼r Subfiledatensatz
+      *  Laden Texte für Subfiledatensatz
      D lf_loadSubfileText...
      D                 PR                         likerec(PBSFL: *OUTPUT)
      D  i_SUBFILE_OUT                             likerec(PBSFL: *OUTPUT)
       *
-      *  Laden Update Image fÃ¼r Subfiledatensatz
+      *  Laden Update Image für Subfiledatensatz
      D lf_loadSubfileOutImage...
      D                 PR                         likerec(PBSFL: *OUTPUT)
      D  i_SUBFILE_IN                              likerec(PBSFL: *INPUT )
       *
-      *  PrÃ¼fen auf eindeutige Jobauswahl und ermitteln Job.
+      *  Prüfen auf eindeutige Jobauswahl und ermitteln Job.
      D lf_getUniqueJob...
      D                 PR              N
      D  hJobs                              const  like(lstJob_handle_t)
      D  q1Job                                     likeds(qJob_t       )
       *                                                                                       RADDAT
-      *  PrÃ¼fen, ob der Jobstatus gÃ¼ltig ist.                                                 RADDAT
+      *  Prüfen, ob der Jobstatus gültig ist.                                                 RADDAT
      D lf_isJobValid...                                                                       RADDAT
      D                 PR              N                                                      RADDAT
      D  jobl0100                           const  likeds(jobl0100_t  )                        RADDAT
@@ -2086,7 +2085,7 @@ srccssid=  "00273">
             // Wenn nur 1 Job den Suchkriterien entspricht, ...
  B02        if lf_getUniqueJob(hJobs: q1Job);
                // ... dann diesen Job direkt als gefunden
-               //     zurÃ¼ck geben.
+               //     zurück geben.
                o_qJob = q1Job;
                // ... fake that ENTER was pressed
                key    = cKeyEnter;                                                          //RADDAT
@@ -2095,11 +2094,11 @@ srccssid=  "00273">
                leave;
  E02        endif;
 
-            // Ã–ffnen Bildschirmdatei
+            // Öffnen Bildschirmdatei
             g_dspF = %trim(sds.pgmLib) + '/' + 'SLCJOBFM';                                  //RADDAT
             open SLCJOBFM;                                                                  //RADDAT
 
-            // FÃ¼llen Subfile
+            // Füllen Subfile
             lf_loadSubfile(hJobs);
 
             // Ausgeben Bildschirm
@@ -2109,7 +2108,7 @@ srccssid=  "00273">
 
                key = lf_showScreen();
 
-               // Verarbeiten Eingabe fÃ¼r ...
+               // Verarbeiten Eingabe für ...
  B03           select;
                // ... F3
                when key = cKeyF3;                                                           //RADDAT
@@ -2144,13 +2143,13 @@ srccssid=  "00273">
 
          o_cmdKey = key;
 
-         // SchlieÃŸen Bildschirmdatei
+         // Schließen Bildschirmdatei
  B01     if %open(SLCJOBFM);                                                                //RADDAT
             close SLCJOBFM;                                                                 //RADDAT
             g_dspF = '';
  E01     endif;
 
-         // SchlieÃŸen Liste der Jobs
+         // Schließen Liste der Jobs
  B01     if (not HANDLE_isNull(hJobs));
             f_cloJobLst(hJobs);
  E01     endif;
@@ -2189,13 +2188,13 @@ srccssid=  "00273">
       * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       /FREE
 
-         // LÃ¶schen Subfile
+         // Löschen Subfile
          lp_clearSubfile();
 
          // Lesen Jobs
  B01     for x = 1 to f_getNumJobAvl(hJobs);
 
-            // Abrufen ersten/nÃ¤chsten Job
+            // Abrufen ersten/nächsten Job
  B02        if x = 1;
                f_getFirstJob(hJobs: jobl0100);
  X02        else;
@@ -2204,11 +2203,11 @@ srccssid=  "00273">
 
  B02        if SLCJOB_cb_isJobValid(jobl0100);                                              //RADDAT
 
-               // Abrufen zusÃ¤tzlicher Job-Attribute
+               // Abrufen zusätzlicher Job-Attribute
                jobi0200 = f_rtvJobA(jobl0100.intJobID: 'JOBI0200': msg);
                jobi0400 = f_rtvJobA(jobl0100.intJobID: 'JOBI0400': msg);
 
-               // LÃ¶schen Subfile-Felder
+               // Löschen Subfile-Felder
                clear ds_SUBFILE_OUT;
 
                // Laden versteckte Felder
@@ -2251,7 +2250,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  LÃ¶schen Subfile
+      *  Löschen Subfile
       *===============================================================*
      P lp_clearSubfile...
      P                 B
@@ -2379,7 +2378,7 @@ srccssid=  "00273">
  E03           endif;
  E02        endif;
 
-            // FÃ¼llen Subfiledatensatz fÃ¼r Update
+            // Füllen Subfiledatensatz für Update
             ds_SUBFILE_OUT = lf_loadSubfileOutImage(ds_SUBFILE_IN);
 
  B02        if not isError;
@@ -2393,7 +2392,7 @@ srccssid=  "00273">
             // Beibehalten Cursor-Position
             sflrrn.lastChanged = g_sflRrn;
 
-            // Verlassen Schleife bei Fehler = Satz zur Ã„nderung markiert
+            // Verlassen Schleife bei Fehler = Satz zur Änderung markiert
  B02        if isError;
  B03           if sflRrn.firstError = 0;
                   sflrrn.firstError = g_sflRrn;
@@ -2438,7 +2437,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  Lesen geÃ¤nderten Subfile-Datensatz
+      *  Lesen geänderten Subfile-Datensatz
       *===============================================================*
      P lf_readc...
      P                 B
@@ -2469,7 +2468,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  PrÃ¼fen Subfile-Datensatz
+      *  Prüfen Subfile-Datensatz
       *===============================================================*
      P lf_isSubfileRecordValid...
      P                 B
@@ -2505,7 +2504,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  PrÃ¼fen Subfile-Auswahl
+      *  Prüfen Subfile-Auswahl
       *===============================================================*
      P lf_isSubfileOptionValid...
      P                 B
@@ -2536,7 +2535,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  LÃ¶schen Subfile Fehlerbezugszahlen
+      *  Löschen Subfile Fehlerbezugszahlen
       *===============================================================*
      P lf_clearSubfileErrorIndicator...
      P                 B
@@ -2559,7 +2558,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  Laden Texte fÃ¼r Subfiledatensatz
+      *  Laden Texte für Subfiledatensatz
       *===============================================================*
      P lf_loadSubfileText...
      P                 B
@@ -2627,7 +2626,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  Laden Update Image fÃ¼r Subfiledatensatz
+      *  Laden Update Image für Subfiledatensatz
       *===============================================================*
      P lf_loadSubfileOutImage...
      P                 B
@@ -2666,7 +2665,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  PrÃ¼fen auf eindeutige Jobauswahl und ermitteln Job.
+      *  Prüfen auf eindeutige Jobauswahl und ermitteln Job.
       *===============================================================*
      P lf_getUniqueJob...
      P                 B
@@ -2695,7 +2694,7 @@ srccssid=  "00273">
 
  B01     dow (x <= f_getNumJobAvl(hJobs)) and (numJobs <= 1);
 
-            // Abrufen ersten/nÃ¤chsten Job
+            // Abrufen ersten/nächsten Job
  B02        if x = 1;
                f_getFirstJob(hJobs: jobl0100);
  X02        else;
@@ -2725,7 +2724,7 @@ srccssid=  "00273">
      P                 E
       *
       *===============================================================*
-      *  PrÃ¼fen, ob der Jobstatus gÃ¼ltig ist.
+      *  Prüfen, ob der Jobstatus gültig ist.
       *===============================================================*
      P lf_isJobValid...                                                                       RADDAT
      P                 B
@@ -2761,12 +2760,12 @@ srccssid=  "00273">
       * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       /FREE
 
-         Â§PGMQ = '*';                       // Anzuzeigenden Nachrichtenwartesch
+         §PGMQ = '*';                       // Anzuzeigenden Nachrichtenwartesch
 
  B01     if f_getDisplayMode() = cDISPLAY_MODE_DS3;
-            workstnInd.isWideScreen = cFalse;  // BildschirmgrÃ¶ÃŸe 24x80
+            workstnInd.isWideScreen = cFalse;  // Bildschirmgröße 24x80
  X01     else;
-            workstnInd.isWideScreen = cTrue;   // BildschirmgrÃ¶ÃŸe 27x132
+            workstnInd.isWideScreen = cTrue;   // Bildschirmgröße 27x132
  E01     endif;
 
          return;
@@ -2789,7 +2788,7 @@ mbrtext =  "Workstation specific structures and constants     "
 srcfile =  "QSLCJOB   "
 srclib  =  "selected  "
 srclen  =  "00112"
-srccssid=  "00273">
+srccssid=  "01141">
 <copysrc><![CDATA[
       /IF NOT DEFINED(WORKSTN)                                                                RADDAT
       /DEFINE WORKSTN                                                                         RADDAT
@@ -2855,7 +2854,7 @@ CRTBNDCL PGM(&tolib/A_INSTALL) SRCFILE(&tolib/QSLCJOB) SRCMBR(*PGM) DFTACTGRP(*N
 IEW(*LIST)
 ]]>  </qcmdexc>
 <qcmdexc condition="*NONE" release="*CURRENT" dltsplf="*NONE"><![CDATA[
-CALL PGM(&tolib/A_INSTALL) PARM('&TGTRLS' '&SRCFILE' '&tolib')
+CALL PGM(&tolib/A_INSTALL) PARM(('&TGTRLS') ('&SRCFILE') ('&tolib'))
 ]]>  </qcmdexc>
 <qcmdexc condition="*NONE" release="*CURRENT" dltsplf="*NONE"><![CDATA[
 DLTPGM PGM(&tolib/A_INSTALL)
